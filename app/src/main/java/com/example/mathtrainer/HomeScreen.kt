@@ -36,13 +36,13 @@ fun HomeScreen(navController: NavController) {
             navController.navigate("multiplication")
         })
         HomeItem(action = "Division", onClick = {
-
+            navController.navigate("division")
         })
         HomeItem(action = "Addition", onClick = {
-
+            navController.navigate("addition")
         })
         HomeItem(action = "Subtraction", onClick = {
-
+            navController.navigate("subtraction")
         })
     }
 }
