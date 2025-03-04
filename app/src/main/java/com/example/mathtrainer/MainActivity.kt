@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             MathTrainerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Surface(modifier = Modifier.padding(innerPadding)) {
-                        HomeScreen()
+                        NavController()
                     }
                 }
             }

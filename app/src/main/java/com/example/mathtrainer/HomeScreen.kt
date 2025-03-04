@@ -23,16 +23,17 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.mathtrainer.ui.theme.Grey50
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .padding(8.dp)
     ) {
         HomeItem(action = "Multiplication", onClick = {
-
+            navController.navigate("multiplication")
         })
         HomeItem(action = "Division", onClick = {
 
@@ -55,7 +56,7 @@ fun HomeItem(action: String, onClick: () -> Unit) {
             .height(70.dp)
             .clip(RoundedCornerShape(16.dp))
             .background(MaterialTheme.colorScheme.primary)
-            .clickable { onClick },
+            .clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
