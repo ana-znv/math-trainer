@@ -8,6 +8,10 @@ import com.example.mathtrainer.ui.screen.Addition
 import com.example.mathtrainer.ui.screen.Division
 import com.example.mathtrainer.ui.screen.Multiplication
 import com.example.mathtrainer.ui.screen.Subtraction
+import com.example.mathtrainer.ui.screen.mode.EasyMode
+import com.example.mathtrainer.ui.screen.mode.ExpertMode
+import com.example.mathtrainer.ui.screen.mode.HardMode
+import com.example.mathtrainer.ui.screen.mode.MediumMode
 
 @Composable
 fun NavController() {
@@ -18,9 +22,14 @@ fun NavController() {
         startDestination = "home"
     ) {
         composable("home") { HomeScreen(navController) }
-        composable("multiplication") { Multiplication() }
+        composable("multiplication") { Multiplication(navController) }
         composable("division") { Division() }
         composable("addition") { Addition() }
         composable("subtraction") { Subtraction() }
+
+        composable("easy") { EasyMode() }
+        composable("medium") { MediumMode() }
+        composable("hard") { HardMode() }
+        composable("expert") { ExpertMode() }
     }
 }
