@@ -23,9 +23,9 @@ fun NavController() {
     ) {
         composable("home") { HomeScreen(navController) }
         composable("multiplication") { Multiplication(navController) }
-        composable("division") { Division() }
-        composable("addition") { Addition() }
-        composable("subtraction") { Subtraction() }
+        composable("division") { Division(navController) }
+        composable("addition") { Addition(navController) }
+        composable("subtraction") { Subtraction(navController) }
 
         composable("easy") { EasyMode() }
         composable("medium") { MediumMode() }
