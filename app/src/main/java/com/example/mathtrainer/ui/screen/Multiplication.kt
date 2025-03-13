@@ -20,44 +20,5 @@ import java.util.Locale
 
 @Composable
 fun Multiplication(navController: NavController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 30.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            "Choose a difficult:",
-            fontSize = 24.sp,
-        )
-
-
-        LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 200.dp)) {
-            items(
-                listOf(
-                    "Easy" to "easy",
-                    "Medium" to "medium",
-                    "Hard" to "hard",
-                    "Expert" to "expert"
-                )
-            ) { (difficulty, route) ->
-                ButtonsDifficulty(
-                    navController = navController,
-                    difficulty = difficulty,
-                    route = route
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun ButtonsDifficulty(navController: NavController, difficulty: String, route: String) {
-    Button(
-        onClick = { navController.navigate(route) },
-        modifier = Modifier.padding(top = 10.dp, start = 15.dp, end = 15.dp)
-    ) {
-        Text(difficulty)
-    }
+    ChooseDifficulty(navController = navController)
 }
