@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun ExpertMode() {
-    Text(text = "Expert Mode")
+    ModeScreen(start = 1000, end = 10000, operator = "+")
 }

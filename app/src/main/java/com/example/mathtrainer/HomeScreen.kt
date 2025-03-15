@@ -6,10 +6,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,32 +32,48 @@ import com.example.mathtrainer.ui.theme.Grey50
 fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier
-            .padding(8.dp)
+            .fillMaxSize()
+            .padding(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        HomeItem(action = "Multiplication", onClick = {
-            navController.navigate("multiplication")
-        })
-        HomeItem(action = "Division", onClick = {
-            navController.navigate("division")
-        })
-        HomeItem(action = "Addition", onClick = {
-            navController.navigate("addition")
-        })
-        HomeItem(action = "Subtraction", onClick = {
-            navController.navigate("subtraction")
-        })
+        HomeItem(
+            action = "Multiplication",
+            onClick = {
+                navController.navigate("multiplication")
+            },
+            color = Color(0xFFDEA642)
+        )
+        HomeItem(
+            action = "Division", onClick = {
+                navController.navigate("division")
+            },
+            color = Color(0xFF24ACA0)
+        )
+        HomeItem(
+            action = "Addition", onClick = {
+                navController.navigate("addition")
+            },
+            color = Color(0xF3723030)
+        )
+        HomeItem(
+            action = "Subtraction", onClick = {
+                navController.navigate("subtraction")
+            },
+            color = Color(0xFF233894)
+        )
     }
 }
 
 @Composable
-fun HomeItem(action: String, onClick: () -> Unit) {
+fun HomeItem(action: String, onClick: () -> Unit, color: Color) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
             .height(70.dp)
             .clip(RoundedCornerShape(16.dp))
-            .background(MaterialTheme.colorScheme.primary)
+            .background(color)
             .clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
@@ -63,7 +81,7 @@ fun HomeItem(action: String, onClick: () -> Unit) {
         Text(
             text = action,
             style = TextStyle(
-                color = Grey50,
+                color = Color.White,
                 fontSize = 40.sp,
                 fontWeight = FontWeight.Bold
             )
