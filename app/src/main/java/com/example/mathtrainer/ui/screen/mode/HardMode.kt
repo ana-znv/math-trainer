@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun HardMode() {
-    Text(text = "Hard Mode")
+    ModeScreen(start = 100, end = 1000, operator = "+")
 }

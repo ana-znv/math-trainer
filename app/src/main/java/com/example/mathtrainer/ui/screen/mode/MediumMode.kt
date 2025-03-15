@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun MediumMode() {
-    Text(text = "Medium mode")
+    ModeScreen(start = 10, end = 100, operator = "+")
 }
