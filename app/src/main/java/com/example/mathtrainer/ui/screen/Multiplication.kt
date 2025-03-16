@@ -20,5 +20,5 @@ import java.util.Locale
 
 @Composable
 fun Multiplication(navController: NavController) {
-    ChooseDifficulty(navController = navController)
+    ChooseDifficulty(navController = navController, operator = "*")
 }

@@ -66,7 +66,7 @@ fun ModeScreen(start: Int, end: Int, operator: String) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "$firstValue + $secondValue = ?",
+                text = "$firstValue $operator $secondValue = ?",
                 fontSize = 60.sp,
                 color = Color(0xFF2A2A2A),
                 fontWeight = FontWeight.W500
@@ -89,28 +89,16 @@ fun ModeScreen(start: Int, end: Int, operator: String) {
             Button(
                 onClick = {
                     isVisible = true
-                    when (operator) {
-                        "+" -> result = if (firstValue + secondValue == total.toInt()) {
-                            "✅"
-                        } else {
-                            "❌"
-                        }
-                        "-" -> result = if (firstValue - secondValue == total.toInt()) {
-                            "✅"
-                        } else {
-                            "❌"
-                        }
-                        "*" -> result = if (firstValue * secondValue == total.toInt()) {
-                            "✅"
-                        } else {
-                            "❌"
-                        }
-                        "/" -> result = if (firstValue / secondValue == total.toInt()) {
-                            "✅"
-                        } else {
-                            "❌"
-                        }
+
+                    val computedResult = when(operator) {
+                        "+" -> firstValue + secondValue
+                        "-" -> firstValue - secondValue
+                        "*" -> firstValue * secondValue
+                        "/" -> firstValue / secondValue
+                        else -> null
                     }
+                    result = if (computedResult == total.toInt()) "✅" else "❌"
+
                     firstValue = Random.nextInt(start, end)
                     secondValue = Random.nextInt(start, end)
                     total = ""
