@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun ChooseDifficulty(navController: NavController) {
+fun ChooseDifficulty(navController: NavController, operator: String) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,7 +43,8 @@ fun ChooseDifficulty(navController: NavController) {
                 ButtonsDifficulty(
                     navController = navController,
                     difficulty = difficulty,
-                    route = route
+                    route = route,
+                    operator = operator
                 )
             }
         }
@@ -51,9 +52,9 @@ fun ChooseDifficulty(navController: NavController) {
 }
 
 @Composable
-fun ButtonsDifficulty(navController: NavController, difficulty: String, route: String) {
+fun ButtonsDifficulty(navController: NavController, difficulty: String, route: String, operator: String) {
     Button(
-        onClick = { navController.navigate(route) },
+        onClick = { navController.navigate("$route/$operator") },
         modifier = Modifier.padding(top = 10.dp, start = 15.dp, end = 15.dp)
     ) {
         Text(difficulty)

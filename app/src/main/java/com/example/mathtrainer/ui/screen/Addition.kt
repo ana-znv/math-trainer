@@ -6,5 +6,5 @@ import androidx.navigation.NavController
 
 @Composable
 fun Addition(navController: NavController) {
-    ChooseDifficulty(navController = navController)
+    ChooseDifficulty(navController = navController, operator = "+")
 }
