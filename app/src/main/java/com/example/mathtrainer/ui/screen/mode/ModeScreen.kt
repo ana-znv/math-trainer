@@ -40,6 +40,15 @@ fun ModeScreen(start: Int, end: Int, operator: String) {
         mutableIntStateOf(Random.nextInt(start, end))
     }
 
+    if (operator == "/") {
+        while (firstValue < secondValue) {
+            firstValue = Random.nextInt(start, end)
+        }
+        while (firstValue % secondValue != 0) {
+            secondValue = Random.nextInt(start, end)
+        }
+    }
+
     var total by remember {
         mutableStateOf("")
     }
