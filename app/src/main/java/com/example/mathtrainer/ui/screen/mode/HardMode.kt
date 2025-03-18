@@ -5,5 +5,15 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun HardMode(operator: String) {
-    ModeScreen(start = 100, end = 1000, operator = operator)
+    when (operator) {
+        "*" -> {
+            ModeScreen(start = 100, end = 200, operator = operator)
+        }
+        "/" -> {
+            ModeScreen(start = 100, end = 200, operator = operator)
+        }
+        else -> {
+            ModeScreen(start = 100, end = 1000, operator = operator)
+        }
+    }
 }

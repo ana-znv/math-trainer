@@ -5,5 +5,10 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun MediumMode(operator: String) {
-    ModeScreen(start = 10, end = 100, operator = operator)
+    if (operator == "*") {
+        ModeScreen(start = 10, end = 50, operator = operator)
+    }
+    else {
+        ModeScreen(start = 10, end = 100, operator = operator)
+    }
 }
