@@ -99,14 +99,23 @@ fun ModeScreen(start: Int, end: Int, operator: String) {
                 onClick = {
                     isVisible = true
 
-                    val computedResult = when(operator) {
+                    val computedResult = when (operator) {
                         "+" -> firstValue + secondValue
                         "-" -> firstValue - secondValue
                         "*" -> firstValue * secondValue
                         "/" -> firstValue / secondValue
                         else -> null
                     }
-                    result = if (computedResult == total.toInt()) "✅" else "❌"
+
+                    while (total.isEmpty()) {
+                        return@Button
+                    }
+
+                    try {
+                        result = if (computedResult == total.toInt()) "✅" else "❌"
+                    } catch (e: NumberFormatException) {
+                        return@Button
+                    }
 
                     firstValue = Random.nextInt(start, end)
                     secondValue = Random.nextInt(start, end)
